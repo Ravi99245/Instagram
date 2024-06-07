@@ -8,13 +8,14 @@ import {
   InputElements,
   InputElement,
   LabelElement,
+  ErrorMsg,
+  LoginButton,
 } from './styledComponent'
 
 class LoginForm extends Component {
   state = {
     username: '',
     password: '',
-    passwordType: true,
     showSubmitError: false,
     errorMsg: '',
   }
@@ -24,7 +25,9 @@ class LoginForm extends Component {
   }
 
   onChangePassword = event => {
-    this.setState({password: event.target.value})
+    this.setState({
+      password: event.target.value,
+    })
   }
 
   submitForm = async event => {
@@ -33,7 +36,7 @@ class LoginForm extends Component {
 
   renderPasswordField = () => {
     const {password} = this.state
-
+    console.log(password)
     return (
       <>
         <LabelElement className="input-label" htmlFor="password">
@@ -42,7 +45,7 @@ class LoginForm extends Component {
         <InputElement
           type="password"
           id="password"
-          className="password-input-field"
+          name="password"
           value={password}
           onChange={this.onChangePassword}
           placeholder="Password"
@@ -68,6 +71,8 @@ class LoginForm extends Component {
   }
 
   render() {
+    const {showSubmitError, errorMsg} = this.state
+
     return (
       <LoginFormContainer>
         <div>
@@ -85,6 +90,8 @@ class LoginForm extends Component {
 
           <InputElements>{this.renderInputField()}</InputElements>
           <InputElements>{this.renderPasswordField()}</InputElements>
+          {showSubmitError && <ErrorMsg>*{errorMsg}</ErrorMsg>}
+          <LoginButton type="button">Login</LoginButton>
         </FromElement>
       </LoginFormContainer>
     )
