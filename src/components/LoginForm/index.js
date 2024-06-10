@@ -1,4 +1,6 @@
 import {Component} from 'react'
+import Cookies from 'js-cookie'
+import {Redirect} from 'react-router-dom'
 
 import {
   LoginImage,
@@ -30,8 +32,33 @@ class LoginForm extends Component {
     })
   }
 
+  onSubmitSuccess = jwtToken => {
+    console.log(jwtToken)
+    Cookies.set('jwt_token', jwtToken, {expires: 30, path: '/'})
+    const {history} = this.props
+    history.replace('/')
+  }
+
+  onSubmitFailure = errorMsg => {
+    this.setState({showSubmitError: true, errorMsg})
+  }
+
   submitForm = async event => {
     event.preventDefault()
+    const {username, password} = this.state
+    const userDetails = {username, password}
+    const apiUrl = 'https://apis.ccbp.in/login'
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(userDetails),
+    }
+    const response = await fetch(apiUrl, options)
+    const data = await response.json()
+    if (response.ok) {
+      this.onSubmitSuccess(data.jwt_token)
+    } else {
+      this.onSubmitFailure(data.error_msg)
+    }
   }
 
   renderPasswordField = () => {
@@ -72,6 +99,11 @@ class LoginForm extends Component {
 
   render() {
     const {showSubmitError, errorMsg} = this.state
+    const {jwtToken} = Cookies.get('jwt_token')
+    console.log(jwtToken)
+    if (jwtToken !== undefined) {
+      return <Redirect to="/" />
+    }
 
     return (
       <LoginFormContainer>
@@ -91,7 +123,7 @@ class LoginForm extends Component {
           <InputElements>{this.renderInputField()}</InputElements>
           <InputElements>{this.renderPasswordField()}</InputElements>
           {showSubmitError && <ErrorMsg>*{errorMsg}</ErrorMsg>}
-          <LoginButton type="button">Login</LoginButton>
+          <LoginButton type="submit">Login</LoginButton>
         </FromElement>
       </LoginFormContainer>
     )
