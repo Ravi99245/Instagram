@@ -11,7 +11,6 @@ const Arrow = styled.div`
 
 export const CustomPrevArrow = props => {
   const {className, style, onClick} = props
-  console.log(props)
   return <Arrow className={className} style={{...style}} onClick={onClick} />
 }
 
