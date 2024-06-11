@@ -63,7 +63,11 @@ class Header extends Component {
                     onChange={this.ChangeSearchInput}
                     placeholder="Search Caption"
                   />
-                  <SearchButton type="button" aria-label="search">
+                  <SearchButton
+                    type="button"
+                    aria-label="search"
+                    onClick={updatePageToNone}
+                  >
                     <SearchElement />
                   </SearchButton>
                 </div>
