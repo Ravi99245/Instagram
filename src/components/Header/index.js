@@ -2,6 +2,7 @@ import {Component} from 'react'
 import {withRouter, Redirect} from 'react-router-dom'
 
 import {FaSearch} from 'react-icons/fa'
+import {BiMenu} from 'react-icons/bi'
 
 import InstaContext from '../../context/InstaContext'
 
@@ -16,6 +17,9 @@ import {
   SearchContainer,
   PageName,
   LogoutButton,
+  HamburgerButton,
+  HamburgerIcon,
+  AppName,
 } from './styledCompnent'
 
 class Header extends Component {
@@ -33,7 +37,7 @@ class Header extends Component {
     return (
       <InstaContext.Consumer>
         {value => {
-          const {currentPage, changePage} = value
+          const {currentPage, changePage, updateShowOptions} = value
           const updatePageToProfile = () => {
             changePage('profile')
           }
@@ -42,6 +46,9 @@ class Header extends Component {
           }
           const updatePageToNone = () => {
             changePage('none')
+          }
+          const showSearchInput = () => {
+            updateShowOptions()
           }
 
           return (
@@ -52,7 +59,7 @@ class Header extends Component {
                     src="https://res.cloudinary.com/da0gwokvk/image/upload/v1718018945/Standard_Collection_8_1_lwmxiw.png"
                     alt="Cloud Logo"
                   />
-                  <h1>Insta Share</h1>
+                  <AppName>Insta Share</AppName>
                 </LogoContainer>
               </LinkElement>
               <SearchContainer>
@@ -91,6 +98,13 @@ class Header extends Component {
                   Logout
                 </LogoutButton>
               </SearchContainer>
+              <HamburgerButton
+                type="button"
+                aria-label="menu"
+                onClick={showSearchInput}
+              >
+                <HamburgerIcon />
+              </HamburgerButton>
             </HeaderContainer>
           )
         }}

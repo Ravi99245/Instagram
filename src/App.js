@@ -11,19 +11,30 @@ import './App.css'
 class App extends Component {
   state = {
     currentPage: 'home',
+    showOptions: false,
   }
 
   changePage = pageName => {
     this.setState({currentPage: pageName})
   }
 
+  updateShowOptions = () => {
+    this.setState(prevState => ({
+      showOptions: !prevState.showOptions,
+    }))
+  }
+
   render() {
-    const {currentPage} = this.state
+    const {currentPage, showOptions} = this.state
+    console.log(showOptions)
+
     return (
       <InstaContext.Provider
         value={{
           currentPage,
           changePage: this.changePage,
+          showOptions,
+          updateShowOptions: this.updateShowOptions,
         }}
       >
         <Switch>

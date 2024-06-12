@@ -2,6 +2,27 @@ import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
 import {FaSearch} from 'react-icons/fa'
+import {BiMenu} from 'react-icons/bi'
+
+export const HamburgerIcon = styled(BiMenu)`
+  width: 35px;
+  height: 35px;
+  top: 26px;
+  left: 312px;
+  padding: 6px 3px 6px 3px;
+  gap: 0px;
+  opacity: 0px;
+`
+
+export const AppName = styled.h1`
+  @media screen and (max-width: 768px) {
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+  }
+`
 
 export const SearchElement = styled(FaSearch)`
   width: 10px;
@@ -37,6 +58,14 @@ export const InstaLogo = styled.img`
   gap: 0px;
   opacity: 0px;
   margin-right: 8px;
+  @media screen and (max-width: 768px) {
+    width: 55px;
+    height: 28px;
+    top: 24px;
+    left: 24px;
+    gap: 0px;
+    opacity: 0px;
+  }
 `
 export const HeaderContainer = styled.nav`
   height: 64px;
@@ -46,12 +75,19 @@ export const HeaderContainer = styled.nav`
   justify-content: space-around;
   align-items: center;
   font-family: 'Roboto';
+  @media screen and (max-width: 768px) {
+    justify-content: space-between;
+    width: 90vw;
+  }
 `
 
 export const LogoContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  @media screen and (max-width: 768px) {
+    justify-content: space-between;
+  }
 `
 
 export const InputElement = styled.input`
@@ -71,6 +107,9 @@ export const SearchContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `
 export const PageName = styled.p`
   font-family: 'Roboto';
@@ -101,4 +140,10 @@ export const LogoutButton = styled.button`
   outline: none;
   border-radius: 4px;
   margin-left: 10px;
+`
+export const HamburgerButton = styled.button`
+  cursor: pointer;
+  outline: none;
+  background-color: transparent;
+  border: none;
 `

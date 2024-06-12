@@ -4,16 +4,22 @@ import Loader from 'react-loader-spinner'
 import Slider from 'react-slick'
 import {Link} from 'react-router-dom'
 
+import StoryCard from '../StoryCard/index'
+
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-import {CustomPrevArrow, CustomNextArrow} from './styledComponent'
+import {
+  CustomPrevArrow,
+  CustomNextArrow,
+  LoaderContainer,
+} from './styledComponent'
 
 const settings = {
-  dots: true,
+  dots: false,
   infinite: true,
   speed: 500,
-  slidesToShow: 3,
+  slidesToShow: 7,
   slidesToScroll: 1,
   autoplay: false,
   autoplaySpeed: 2000,
@@ -25,17 +31,18 @@ const settings = {
     {
       breakpoint: 1024,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 6,
         slidesToScroll: 1,
         infinite: true,
         dots: true,
       },
     },
     {
-      breakpoint: 600,
+      breakpoint: 768,
       settings: {
-        slidesToShow: 1,
+        slidesToShow: 4,
         slidesToScroll: 1,
+        infinite: false,
       },
     },
   ],
@@ -84,29 +91,41 @@ class SliderComponent extends Component {
     }
   }
 
-  render() {
+  renderLoadingView = () => (
+    <LoaderContainer className="loader-container" data-testid="loader">
+      <Loader type="TailSpin" color="#4e92f5" height="30" width="30" />
+    </LoaderContainer>
+  )
+
+  renderStoriesView = () => {
+    const {storiesList} = this.state
+
     return (
       <Slider {...settings}>
-        <div>
-          <h3>Slide 1</h3>
-        </div>
-        <div>
-          <h3>Slide 2</h3>
-        </div>
-        <div>
-          <h3>Slide 3</h3>
-        </div>
-        <div>
-          <h3>Slide 4</h3>
-        </div>
-        <div>
-          <h3>Slide 5</h3>
-        </div>
-        <div>
-          <h3>Slide 6</h3>
-        </div>
+        {storiesList.map(eachItem => (
+          <StoryCard key={eachItem.userId} story={eachItem} />
+        ))}
       </Slider>
     )
+  }
+
+  renderAllStories = () => {
+    const {apiStatus} = this.state
+
+    switch (apiStatus) {
+      case apiStatusText.success:
+        return this.renderStoriesView()
+      case apiStatusText.failure:
+        return this.renderFailureView()
+      case apiStatusText.inProgress:
+        return this.renderLoadingView()
+      default:
+        return null
+    }
+  }
+
+  render() {
+    return <>{this.renderAllStories()}</>
   }
 }
 

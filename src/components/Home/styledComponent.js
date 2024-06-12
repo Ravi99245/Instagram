@@ -7,6 +7,14 @@ export const SliderContainer = styled.div`
   left: 200px;
   gap: 0px;
   opacity: 0px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  @media screen and (max-width: 768px) {
+    width: 80%;
+    height: 90px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
 `
 
 export const MainContainer = styled.div`
@@ -20,4 +28,7 @@ export const MainContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  @media screen and (max-width: 768px) {
+    padding: 5px;
+  }
 `

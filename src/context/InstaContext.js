@@ -5,6 +5,8 @@ const InstaContext = React.createContext({
   updateUrl: () => {},
   currentPage: 'home',
   changePage: () => {},
+  showOptions: false,
+  updateShowOptions: () => {},
 })
 
 export default InstaContext

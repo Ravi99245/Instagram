@@ -18,3 +18,11 @@ export const CustomNextArrow = props => {
   const {className, style, onClick} = props
   return <Arrow className={className} style={{...style}} onClick={onClick} />
 }
+
+export const LoaderContainer = styled.div`
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
