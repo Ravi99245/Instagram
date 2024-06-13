@@ -7,6 +7,8 @@ const InstaContext = React.createContext({
   changePage: () => {},
   showOptions: false,
   updateShowOptions: () => {},
+  showSearchBar: false,
+  updateShowSearchBar: () => {},
 })
 
 export default InstaContext

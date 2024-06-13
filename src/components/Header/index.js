@@ -32,12 +32,15 @@ class Header extends Component {
   render() {
     const {searchInput} = this.state
 
-    console.log(this.props)
-
     return (
       <InstaContext.Consumer>
         {value => {
-          const {currentPage, changePage, updateShowOptions} = value
+          const {
+            currentPage,
+            changePage,
+            updateShowOptions,
+            updateShowSearchBar,
+          } = value
           const updatePageToProfile = () => {
             changePage('profile')
           }

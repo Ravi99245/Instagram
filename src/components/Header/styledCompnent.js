@@ -140,10 +140,21 @@ export const LogoutButton = styled.button`
   outline: none;
   border-radius: 4px;
   margin-left: 10px;
+  @media screen and (max-width: 768px) {
+    width: Hug (86px) px;
+    height: Hug (32px) px;
+    padding: 8px 24px 8px 24px;
+    gap: 8px;
+    border-radius: 4px 0px 0px 0px;
+    opacity: 0px;
+  }
 `
 export const HamburgerButton = styled.button`
   cursor: pointer;
   outline: none;
   background-color: transparent;
   border: none;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 `

@@ -7,7 +7,7 @@ export const LinkElement = styled(Link)`
 
 export const StoryImage = styled.img`
   width: 70px;
-  height: 70px;
+  height: 75px;
   top: 112px;
   left: 274px;
   gap: 0px;

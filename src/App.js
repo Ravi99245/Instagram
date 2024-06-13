@@ -12,6 +12,7 @@ class App extends Component {
   state = {
     currentPage: 'home',
     showOptions: false,
+    showSearchBar: false,
   }
 
   changePage = pageName => {
@@ -21,12 +22,18 @@ class App extends Component {
   updateShowOptions = () => {
     this.setState(prevState => ({
       showOptions: !prevState.showOptions,
+      showSearchBar: false,
+    }))
+  }
+
+  updateShowSearchBar = () => {
+    this.setState(prevState => ({
+      showSearchBar: !prevState.showSearchBar,
     }))
   }
 
   render() {
-    const {currentPage, showOptions} = this.state
-    console.log(showOptions)
+    const {currentPage, showOptions, showSearchBar} = this.state
 
     return (
       <InstaContext.Provider
@@ -35,6 +42,8 @@ class App extends Component {
           changePage: this.changePage,
           showOptions,
           updateShowOptions: this.updateShowOptions,
+          showSearchBar,
+          updateShowSearchBar: this.updateShowSearchBar,
         }}
       >
         <Switch>
