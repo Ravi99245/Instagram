@@ -14,7 +14,8 @@ class Home extends Component {
     return (
       <InstaContext.Consumer>
         {value => {
-          const {showOptions, updateShowOptions} = value
+          const {showOptions} = value
+
           return (
             <MainContainer>
               <Header />

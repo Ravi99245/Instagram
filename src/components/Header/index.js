@@ -1,8 +1,5 @@
 import {Component} from 'react'
-import {withRouter, Redirect} from 'react-router-dom'
-
-import {FaSearch} from 'react-icons/fa'
-import {BiMenu} from 'react-icons/bi'
+import {withRouter} from 'react-router-dom'
 
 import InstaContext from '../../context/InstaContext'
 
@@ -35,24 +32,15 @@ class Header extends Component {
     return (
       <InstaContext.Consumer>
         {value => {
-          const {
-            currentPage,
-            changePage,
-            updateShowOptions,
-            updateShowSearchBar,
-          } = value
-          const updatePageToProfile = () => {
-            changePage('profile')
-          }
-          const updatePageToHome = () => {
-            changePage('home')
-          }
+          const {changePage, updateShowOptions} = value
+
           const updatePageToNone = () => {
             changePage('none')
           }
           const showSearchInput = () => {
             updateShowOptions()
           }
+          const {history} = this.props
 
           return (
             <HeaderContainer>
@@ -82,17 +70,13 @@ class Header extends Component {
                   </SearchButton>
                 </div>
                 <LinkElement to="/">
-                  <PageName
-                    active={currentPage === 'home'.toString()}
-                    onClick={updatePageToHome}
-                  >
+                  <PageName active={history.location.pathname === '/'}>
                     Home
                   </PageName>
                 </LinkElement>
                 <LinkElement to="/my-profile">
                   <PageName
-                    active={currentPage === 'profile'.toString()}
-                    onClick={updatePageToProfile}
+                    active={history.location.pathname === '/my-profile'}
                   >
                     Profile
                   </PageName>
@@ -116,4 +100,4 @@ class Header extends Component {
   }
 }
 
-export default Header
+export default withRouter(Header)

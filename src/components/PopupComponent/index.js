@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import {Link} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 import {IoMdCloseCircle} from 'react-icons/io'
 
 import InstaContext from '../../context/InstaContext'
@@ -31,19 +31,12 @@ class PopupComponent extends Component {
       <InstaContext.Consumer>
         {value => {
           const {
-            currentPage,
             changePage,
             showSearchBar,
             updateShowSearchBar,
-            showOptions,
             updateShowOptions,
           } = value
-          const updatePageToProfile = () => {
-            changePage('profile')
-          }
-          const updatePageToHome = () => {
-            changePage('home')
-          }
+
           const updatePageToNone = () => {
             changePage('none')
           }
@@ -54,24 +47,21 @@ class PopupComponent extends Component {
           const enhanceShowOptions = () => {
             updateShowOptions()
           }
+          const {history} = this.props
 
           return (
             <TotalContainer>
               {!showSearchBar && (
                 <OptionsContainer>
                   <LinkElement to="/">
-                    <PageName
-                      active={currentPage === 'home'.toString()}
-                      onClick={updatePageToHome}
-                    >
+                    <PageName active={history.location.pathname === '/'}>
                       Home
                     </PageName>
                   </LinkElement>
                   <PageName onClick={enhanceSearchBar}>Search</PageName>
                   <LinkElement to="/my-profile">
                     <PageName
-                      active={currentPage === 'profile'.toString()}
-                      onClick={updatePageToProfile}
+                      active={history.location.pathname === '/my-profile'}
                     >
                       Profile
                     </PageName>
@@ -113,4 +103,4 @@ class PopupComponent extends Component {
   }
 }
 
-export default PopupComponent
+export default withRouter(PopupComponent)

@@ -75,9 +75,11 @@ export const HeaderContainer = styled.nav`
   justify-content: space-around;
   align-items: center;
   font-family: 'Roboto';
+  background-color: #ffffff;
   @media screen and (max-width: 768px) {
     justify-content: space-between;
     width: 90vw;
+    background-color: #ffffff;
   }
 `
 
@@ -107,6 +109,7 @@ export const SearchContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  background-color: #ffffff;
   @media screen and (max-width: 768px) {
     display: none;
   }

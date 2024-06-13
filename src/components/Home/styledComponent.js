@@ -28,7 +28,9 @@ export const MainContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  background-color: #f7f8fa;
   @media screen and (max-width: 768px) {
     padding: 5px;
+    background-color: #ffffff;
   }
 `

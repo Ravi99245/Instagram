@@ -2,7 +2,6 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import Slider from 'react-slick'
-import {Link} from 'react-router-dom'
 
 import StoryCard from '../StoryCard/index'
 

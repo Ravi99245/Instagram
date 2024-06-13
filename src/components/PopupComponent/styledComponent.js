@@ -20,6 +20,7 @@ export const OptionsContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  background-color: #ffffff;
 `
 export const SearchContainer = styled.div`
   height: 50px;
