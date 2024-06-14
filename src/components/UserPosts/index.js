@@ -3,7 +3,9 @@ import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 
-import {LoaderContainer, PostContainer} from './styledComponent'
+import PostCard from '../PostCard/index'
+
+import {LoaderContainer, PostContainer, CardsList} from './styledComponent'
 
 const apiStatusText = {
   initial: 'INITIAL',
@@ -54,6 +56,18 @@ class UserPosts extends Component {
     } else {
       this.setState({apiStatus: apiStatusText.failure})
     }
+  }
+
+  renderUserPostsView = () => {
+    const {userPosts} = this.state
+
+    return (
+      <CardsList>
+        {userPosts.map(eachItem => (
+          <PostCard key={eachItem.userId} card={eachItem} />
+        ))}
+      </CardsList>
+    )
   }
 
   renderLoadingView = () => (

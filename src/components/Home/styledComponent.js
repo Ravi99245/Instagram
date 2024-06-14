@@ -23,7 +23,7 @@ export const UserPostsContainer = styled.div`
 `
 export const MainContainer = styled.div`
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   top: 53177px;
   left: 20968px;
   gap: 0px;
@@ -33,6 +33,7 @@ export const MainContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   background-color: #f7f8fa;
+
   @media screen and (max-width: 768px) {
     padding: 5px;
     background-color: #ffffff;
