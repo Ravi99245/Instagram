@@ -2,13 +2,13 @@ import styled from 'styled-components'
 
 export const SliderContainer = styled.div`
   width: 72%;
-  height: 150px;
+  height: 130px;
   top: 258px;
   left: 200px;
   gap: 0px;
   opacity: 0px;
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
   @media screen and (max-width: 768px) {
     width: 80%;
     height: 90px;
@@ -17,6 +17,10 @@ export const SliderContainer = styled.div`
   }
 `
 
+export const UserPostsContainer = styled.div`
+  width: 74%;
+  min-height: 80vh;
+`
 export const MainContainer = styled.div`
   width: 100vw;
   height: 100vh;

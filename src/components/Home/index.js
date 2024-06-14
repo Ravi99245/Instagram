@@ -3,9 +3,14 @@ import {Component} from 'react'
 import Header from '../Header/index'
 import SliderComponent from '../SliderComponent/index'
 import PopupComponent from '../PopupComponent/index'
+import UserPosts from '../UserPosts/index'
 import InstaContext from '../../context/InstaContext'
 
-import {MainContainer, SliderContainer} from './styledComponent'
+import {
+  MainContainer,
+  SliderContainer,
+  UserPostsContainer,
+} from './styledComponent'
 
 class Home extends Component {
   state = {}
@@ -23,6 +28,9 @@ class Home extends Component {
               <SliderContainer>
                 <SliderComponent />
               </SliderContainer>
+              <UserPostsContainer>
+                <UserPosts />
+              </UserPostsContainer>
             </MainContainer>
           )
         }}
