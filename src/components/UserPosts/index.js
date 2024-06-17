@@ -64,7 +64,7 @@ class UserPosts extends Component {
     return (
       <CardsList>
         {userPosts.map(eachItem => (
-          <PostCard key={eachItem.userId} card={eachItem} />
+          <PostCard key={eachItem.postId} card={eachItem} />
         ))}
       </CardsList>
     )

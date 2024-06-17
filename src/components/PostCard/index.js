@@ -2,9 +2,6 @@ import {Component} from 'react'
 
 import Cookies from 'js-cookie'
 
-import {BsHeart} from 'react-icons/bs'
-import {FcLike} from 'react-icons/fc'
-
 import {
   ProfileImage,
   UserName,
@@ -12,16 +9,26 @@ import {
   ProfileContainer,
   ListItem,
   PostImage,
+  MessageIcon,
+  ShareIcon,
+  HeartIcon,
+  FcLikeIcon,
+  CommentSection,
 } from './styledComponent'
 
 class PostCard extends Component {
-  state = {likeStatus: ''}
+  state = {numberOfLikes: '', likeStatus: false}
+
+  componentDidMount() {
+    const {card} = this.props
+    const {likesCount} = card
+    this.setState({numberOfLikes: likesCount})
+  }
 
   render() {
+    const {numberOfLikes} = this.state
     const {likeStatus} = this.props
-    const LikeIcon = likeStatus ? <FcLike /> : <BsHeart />
     const {card} = this.props
-    console.log(card)
     const {
       profilePic,
       comments,
@@ -43,7 +50,21 @@ class PostCard extends Component {
         </ProfileContainer>
         <PostImage src={imageUrl} alt="post" />
         <div>
-          <div></div>
+          <div>
+            <button type="button" aria-label="like">
+              {likeStatus ? <FcLikeIcon /> : <HeartIcon />}
+            </button>
+            <ShareIcon />
+            <MessageIcon />
+          </div>
+          <p>{numberOfLikes}</p>
+          <p>{caption}</p>
+          {comments.map(eachItem => (
+            <CommentSection>
+              <p>{eachItem.user_name}</p>
+              {eachItem.comment}
+            </CommentSection>
+          ))}
         </div>
       </ListItem>
     )

@@ -1,5 +1,52 @@
 import styled from 'styled-components'
 
+import {BsHeart} from 'react-icons/bs'
+import {FcLike} from 'react-icons/fc'
+import {IoShareSocialSharp} from 'react-icons/io5'
+import {BiMessageRounded} from 'react-icons/bi'
+
+export const MessageIcon = styled(BiMessageRounded)`
+  width: 24px;
+  height: 24px;
+  top: 688px;
+  left: 104px;
+  gap: 0px;
+  opacity: 0px;
+  color: #475569;
+`
+
+export const ShareIcon = styled(IoShareSocialSharp)`
+  width: 24px;
+  height: 24px;
+  top: 688px;
+  left: 64px;
+  padding: 2px 1px 2.61px 1px;
+  gap: 0px;
+  opacity: 0px;
+  color: #475569;
+`
+
+export const HeartIcon = styled(BsHeart)`
+  width: 24px;
+  height: 24px;
+  top: 688px;
+  left: 24px;
+  padding: 1.92px 0.33px 2.32px 0.96px;
+  gap: 0px;
+  opacity: 0px;
+  color: #475569;
+`
+
+export const FcLikeIcon = styled(FcLike)`
+  width: 24px;
+  height: 24px;
+  top: 688px;
+  left: 24px;
+  padding: 1.92px 0.33px 2.32px 0.96px;
+  gap: 0px;
+  opacity: 0px;
+`
+
 export const ListItem = styled.li`
   width: 100%;
   height: 866px;
@@ -77,4 +124,11 @@ export const PostImage = styled.img`
   top: 59px;
   gap: 0px;
   opacity: 0px;
+`
+export const CommentSection = styled.p`
+  color: #262626;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0px;
 `
