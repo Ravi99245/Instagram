@@ -1,7 +1,5 @@
 import {Component} from 'react'
 
-import Cookies from 'js-cookie'
-
 import {
   ProfileImage,
   UserName,
@@ -14,6 +12,13 @@ import {
   HeartIcon,
   FcLikeIcon,
   CommentSection,
+  ButtonsContainer,
+  LikeButton,
+  Likes,
+  Caption,
+  SpanElement,
+  BottomContainer,
+  CreatedAt,
 } from './styledComponent'
 
 class PostCard extends Component {
@@ -25,9 +30,30 @@ class PostCard extends Component {
     this.setState({numberOfLikes: likesCount})
   }
 
+  UpdateLikeStatus = () => {
+    this.setState(
+      prevState => ({
+        likeStatus: !prevState.likeStatus,
+      }),
+      this.updateLikesCount,
+    )
+  }
+
+  updateLikesCount = () => {
+    const {likeStatus} = this.state
+    if (likeStatus) {
+      this.setState(prevState => ({
+        numberOfLikes: prevState.numberOfLikes + 1,
+      }))
+    } else {
+      this.setState(prevState => ({
+        numberOfLikes: prevState.numberOfLikes - 1,
+      }))
+    }
+  }
+
   render() {
-    const {numberOfLikes} = this.state
-    const {likeStatus} = this.props
+    const {numberOfLikes, likeStatus} = this.state
     const {card} = this.props
     const {
       profilePic,
@@ -49,23 +75,28 @@ class PostCard extends Component {
           <UserName>{userName}</UserName>
         </ProfileContainer>
         <PostImage src={imageUrl} alt="post" />
-        <div>
-          <div>
-            <button type="button" aria-label="like">
+        <BottomContainer>
+          <ButtonsContainer>
+            <LikeButton
+              type="button"
+              aria-label="like"
+              onClick={this.UpdateLikeStatus}
+            >
               {likeStatus ? <FcLikeIcon /> : <HeartIcon />}
-            </button>
-            <ShareIcon />
+            </LikeButton>
             <MessageIcon />
-          </div>
-          <p>{numberOfLikes}</p>
-          <p>{caption}</p>
+            <ShareIcon />
+          </ButtonsContainer>
+          <Likes>{numberOfLikes} likes</Likes>
+          <Caption>{caption}</Caption>
           {comments.map(eachItem => (
             <CommentSection>
-              <p>{eachItem.user_name}</p>
-              {eachItem.comment}
+              {eachItem.user_name}
+              <SpanElement>{eachItem.comment}</SpanElement>
             </CommentSection>
           ))}
-        </div>
+          <CreatedAt>{createdAt}</CreatedAt>
+        </BottomContainer>
       </ListItem>
     )
   }

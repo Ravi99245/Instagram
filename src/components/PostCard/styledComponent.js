@@ -13,6 +13,7 @@ export const MessageIcon = styled(BiMessageRounded)`
   gap: 0px;
   opacity: 0px;
   color: #475569;
+  margin-right: 12px;
 `
 
 export const ShareIcon = styled(IoShareSocialSharp)`
@@ -24,13 +25,12 @@ export const ShareIcon = styled(IoShareSocialSharp)`
   gap: 0px;
   opacity: 0px;
   color: #475569;
+  margin-right: 12px;
 `
 
 export const HeartIcon = styled(BsHeart)`
   width: 24px;
   height: 24px;
-  top: 688px;
-  left: 24px;
   padding: 1.92px 0.33px 2.32px 0.96px;
   gap: 0px;
   opacity: 0px;
@@ -40,8 +40,6 @@ export const HeartIcon = styled(BsHeart)`
 export const FcLikeIcon = styled(FcLike)`
   width: 24px;
   height: 24px;
-  top: 688px;
-  left: 24px;
   padding: 1.92px 0.33px 2.32px 0.96px;
   gap: 0px;
   opacity: 0px;
@@ -95,7 +93,6 @@ export const OvalContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   background: linear-gradient(
     314.35deg,
     #e20337 6.03%,
@@ -124,11 +121,106 @@ export const PostImage = styled.img`
   top: 59px;
   gap: 0px;
   opacity: 0px;
+  margin-bottom: 0px;
 `
 export const CommentSection = styled.p`
+  height: 18px;
+  top: 780px;
+  left: 24px;
+  gap: 0px;
+  opacity: 0px;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
   color: #262626;
+  padding-left: 26px;
+  margin: 0px;
+  margin-top: 8px;
+`
+export const ButtonsContainer = styled.div`
+  padding-left: 25px;
+  margin-top: 15px;
   display: flex;
   flex-direction: row;
   align-items: center;
+`
+export const LikeButton = styled.div`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  margin-right: 12px;
+`
+
+export const Likes = styled.p`
+  height: 18px;
+  top: 728px;
+  left: 24px;
+  gap: 0px;
+  opacity: 0px;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+  color: #262626;
+  padding-left: 28px;
   margin: 0px;
+  margin-top: 8px;
+`
+export const Caption = styled.p`
+  width: 336px;
+  height: 18px;
+  top: 754px;
+  left: 24px;
+  gap: 0px;
+  opacity: 0px;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: left;
+  color: #262626;
+  padding-left: 28px;
+  margin: 0px;
+  margin-top: 8px;
+`
+export const SpanElement = styled.span`
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: left;
+  padding-left: 6px;
+`
+
+export const BottomContainer = styled.div`
+  width: 100%;
+  height: 194px;
+  top: 672px;
+  gap: 0px;
+  border-radius: 0px 0px 4px 4px;
+  border: 1px solid;
+  opacity: 0px;
+  border: 1px solid #dbdbdb;
+  margin-top: 0px;
+`
+
+export const CreatedAt = styled.div`
+  padding-left: 25px;
+  height: 18px;
+  top: 832px;
+  left: 24px;
+  gap: 0px;
+  opacity: 0px;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: left;
+  color: #989898;
+  margin: 0px;
+  margin-top: 8px;
 `
