@@ -79,6 +79,7 @@ export const HeaderContainer = styled.nav`
   @media screen and (max-width: 768px) {
     justify-content: space-between;
     width: 90vw;
+    align-items: center;
     background-color: #ffffff;
   }
 `

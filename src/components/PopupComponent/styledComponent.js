@@ -66,6 +66,9 @@ export const TotalContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100vw;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 `
 
 export const SearchElement = styled(FaSearch)`

@@ -55,17 +55,7 @@ class PostCard extends Component {
   render() {
     const {numberOfLikes, likeStatus} = this.state
     const {card} = this.props
-    const {
-      profilePic,
-      comments,
-      createdAt,
-      likesCount,
-      caption,
-      imageUrl,
-      postId,
-      userId,
-      userName,
-    } = card
+    const {profilePic, comments, createdAt, caption, imageUrl, userName} = card
     return (
       <ListItem>
         <ProfileContainer>

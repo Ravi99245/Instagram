@@ -54,7 +54,10 @@ class PopupComponent extends Component {
               {!showSearchBar && (
                 <OptionsContainer>
                   <LinkElement to="/">
-                    <PageName active={history.location.pathname === '/'}>
+                    <PageName
+                      active={history.location.pathname === '/'}
+                      onClick={enhanceShowOptions}
+                    >
                       Home
                     </PageName>
                   </LinkElement>
@@ -62,6 +65,7 @@ class PopupComponent extends Component {
                   <LinkElement to="/my-profile">
                     <PageName
                       active={history.location.pathname === '/my-profile'}
+                      onClick={enhanceShowOptions}
                     >
                       Profile
                     </PageName>
