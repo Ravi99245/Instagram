@@ -20,6 +20,9 @@ export const SliderContainer = styled.div`
 export const UserPostsContainer = styled.div`
   width: 74%;
   min-height: 80vh;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `
 export const MainContainer = styled.div`
   width: 100vw;
@@ -35,7 +38,6 @@ export const MainContainer = styled.div`
   background-color: #f7f8fa;
 
   @media screen and (max-width: 768px) {
-    padding: 5px;
     background-color: #ffffff;
   }
 `

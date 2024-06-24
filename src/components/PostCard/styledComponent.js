@@ -47,13 +47,15 @@ export const FcLikeIcon = styled(FcLike)`
 
 export const ListItem = styled.li`
   width: 100%;
-  height: 866px;
   top: 258px;
   left: 200px;
   gap: 0px;
   opacity: 0px;
   background-color: #ffffff;
   margin-bottom: 15px;
+  @media screen and (max-width: 768px) {
+    margin: 0px;
+  }
 `
 
 export const ProfileImage = styled.img`
@@ -114,6 +116,10 @@ export const ProfileContainer = styled.div`
   opacity: 0px;
   border: 1px solid #dbdbdb;
   padding-left: 25px;
+  @media screen and (max-width: 768px) {
+    border: 0px;
+    margin-top: 0px;
+  }
 `
 export const PostImage = styled.img`
   width: 100%;
@@ -122,6 +128,12 @@ export const PostImage = styled.img`
   gap: 0px;
   opacity: 0px;
   margin-bottom: 0px;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    height: 375px;
+    gap: 0px;
+    opacity: 0px;
+  }
 `
 export const CommentSection = styled.p`
   height: 18px;
@@ -138,6 +150,18 @@ export const CommentSection = styled.p`
   padding-left: 26px;
   margin: 0px;
   margin-top: 8px;
+  @media screen and (max-width: 768px) {
+    font-family: 'Roboto';
+    font-size: 12px;
+    font-weight: 600;
+    min-height: 1em;
+    word-wrap: break-word;
+    line-height: 16px;
+    letter-spacing: -0.10000000149011612px;
+    text-align: left;
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+  }
 `
 export const ButtonsContainer = styled.div`
   padding-left: 25px;
@@ -194,6 +218,18 @@ export const SpanElement = styled.span`
   line-height: 18px;
   text-align: left;
   padding-left: 6px;
+
+  @media screen and (max-width: 768px) {
+    font-family: 'Roboto';
+    font-size: 12px;
+    font-weight: 400;
+    min-height: 1em;
+    word-wrap: break-word;
+    line-height: 16px;
+    letter-spacing: -0.10000000149011612px;
+    text-align: left;
+    white-space: pre-wrap;
+  }
 `
 
 export const BottomContainer = styled.div`
@@ -206,6 +242,9 @@ export const BottomContainer = styled.div`
   opacity: 0px;
   border: 1px solid #dbdbdb;
   margin-top: 0px;
+  @media screen and (max-width: 768px) {
+    border-bottom-width: 0px;
+  }
 `
 
 export const CreatedAt = styled.div`
@@ -223,4 +262,7 @@ export const CreatedAt = styled.div`
   color: #989898;
   margin: 0px;
   margin-top: 8px;
+  @media screen and (max-width: 768px) {
+    margin-top: 5px;
+  }
 `

@@ -24,4 +24,10 @@ export const CardsList = styled.ul`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    padding: 0px;
+    border: 0.5px 0px 0px 0px;
+    border: 0.5px solid #c6c6c8;
+  }
 `
