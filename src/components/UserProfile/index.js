@@ -5,7 +5,20 @@ import Cookies from 'js-cookie'
 import Header from '../Header/index'
 import InstaContext from '../../context/InstaContext'
 
-import {UserContainer, LoaderContainer} from './styledComponent'
+import {
+  UserContainer,
+  LoaderContainer,
+  ContentContainer,
+  ProfileImage,
+  DetailsContainer,
+  NamesContainer,
+  PostsContainer,
+  UserName,
+  Followers,
+  SpanElement,
+  UserId,
+  UserBio,
+} from './styledComponent'
 import PopupComponent from '../PopupComponent/index'
 
 const apiStatusText = {
@@ -35,7 +48,6 @@ class UserProfile extends Component {
       },
       method: 'GET',
     }
-
     const response = await fetch(url, options)
     if (response.ok) {
       const data = await response.json()
@@ -69,7 +81,32 @@ class UserProfile extends Component {
       followingCount,
       stories,
       posts,
+      postsCount,
     } = userDetails
+
+    return (
+      <ContentContainer>
+        <DetailsContainer>
+          <ProfileImage src={profilePic} alt="userProfile" />
+          <NamesContainer>
+            <UserName>{userName}</UserName>
+            <PostsContainer>
+              <Followers>
+                {postsCount} <SpanElement>posts</SpanElement>
+              </Followers>
+              <Followers>
+                {followersCount} <SpanElement>followers</SpanElement>
+              </Followers>
+              <Followers>
+                {followingCount} <SpanElement>following</SpanElement>
+              </Followers>
+            </PostsContainer>
+            <UserId>{userId}</UserId>
+            <UserBio>{userBio}</UserBio>
+          </NamesContainer>
+        </DetailsContainer>
+      </ContentContainer>
+    )
   }
 
   renderLoadingView = () => (
@@ -102,7 +139,7 @@ class UserProfile extends Component {
             <UserContainer>
               <Header />
               {showOptions && <PopupComponent />}
-              <div>{this.renderUserProfileDetails()}</div>
+              <>{this.renderUserProfileDetails()}</>
             </UserContainer>
           )
         }}
