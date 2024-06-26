@@ -19,6 +19,7 @@ import {
   SpanElement,
   BottomContainer,
   CreatedAt,
+  LinkItem,
 } from './styledComponent'
 
 class PostCard extends Component {
@@ -55,15 +56,26 @@ class PostCard extends Component {
   render() {
     const {numberOfLikes, likeStatus} = this.state
     const {card} = this.props
-    const {profilePic, comments, createdAt, caption, imageUrl, userName} = card
+    const {
+      profilePic,
+      comments,
+      createdAt,
+      caption,
+      imageUrl,
+      userName,
+      userId,
+    } = card
     return (
       <ListItem>
-        <ProfileContainer>
-          <OvalContainer>
-            <ProfileImage src={profilePic} alt="post author profile" />
-          </OvalContainer>
-          <UserName>{userName}</UserName>
-        </ProfileContainer>
+        <LinkItem to={`/users/${userId}`}>
+          <ProfileContainer>
+            <OvalContainer>
+              <ProfileImage src={profilePic} alt="post author profile" />
+            </OvalContainer>
+            <UserName>{userName}</UserName>
+          </ProfileContainer>
+        </LinkItem>
+
         <PostImage src={imageUrl} alt="post" />
         <BottomContainer>
           <ButtonsContainer>

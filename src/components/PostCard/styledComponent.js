@@ -1,9 +1,15 @@
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 import {BsHeart} from 'react-icons/bs'
 import {FcLike} from 'react-icons/fc'
 import {IoShareSocialSharp} from 'react-icons/io5'
 import {BiMessageRounded} from 'react-icons/bi'
+
+export const LinkItem = styled(Link)`
+  text-decoration: none;
+  color: #262626;
+`
 
 export const MessageIcon = styled(BiMessageRounded)`
   width: 24px;

@@ -18,6 +18,20 @@ import {
   SpanElement,
   UserId,
   UserBio,
+  StoriesContainer,
+  StoriesImage,
+  ImageStoryContainer,
+  HorizontalLine,
+  GridContainer,
+  UserPostsContainer,
+  PostsGrid,
+  GridIcon,
+  PostsImageContainer,
+  PostImage,
+  SmallUserName,
+  SmallProfileImage,
+  SmallPostsContainer,
+  SmallProfileAndFollowersContainer,
 } from './styledComponent'
 import PopupComponent from '../PopupComponent/index'
 
@@ -83,11 +97,26 @@ class UserProfile extends Component {
       posts,
       postsCount,
     } = userDetails
-
+    console.log(posts)
     return (
       <ContentContainer>
         <DetailsContainer>
+          <SmallUserName>{userName}</SmallUserName>
           <ProfileImage src={profilePic} alt="userProfile" />
+          <SmallProfileAndFollowersContainer>
+            <SmallProfileImage src={profilePic} alt="userProfile" />
+            <SmallPostsContainer>
+              <Followers>
+                {postsCount} <br /> <SpanElement>posts</SpanElement>
+              </Followers>
+              <Followers>
+                {followersCount} <br /> <SpanElement>followers</SpanElement>
+              </Followers>
+              <Followers>
+                {followingCount} <br /> <SpanElement>following</SpanElement>
+              </Followers>
+            </SmallPostsContainer>
+          </SmallProfileAndFollowersContainer>
           <NamesContainer>
             <UserName>{userName}</UserName>
             <PostsContainer>
@@ -105,6 +134,29 @@ class UserProfile extends Component {
             <UserBio>{userBio}</UserBio>
           </NamesContainer>
         </DetailsContainer>
+        <StoriesContainer>
+          {stories.map(eachItem => (
+            <ImageStoryContainer key={eachItem.id}>
+              <StoriesImage src={eachItem.image} alt={eachItem.id} />
+            </ImageStoryContainer>
+          ))}
+        </StoriesContainer>
+        <HorizontalLine />
+        <UserPostsContainer>
+          <GridContainer>
+            <GridIcon />
+            <PostsGrid>Posts</PostsGrid>
+          </GridContainer>
+          <PostsImageContainer>
+            {posts.map(eachItem => (
+              <PostImage
+                src={eachItem.image}
+                key={eachItem.id}
+                alt={eachItem.id}
+              />
+            ))}
+          </PostsImageContainer>
+        </UserPostsContainer>
       </ContentContainer>
     )
   }
