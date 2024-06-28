@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import {MdGridOn} from 'react-icons/md'
+import {FaCamera} from 'react-icons/fa'
 
 export const UserContainer = styled.div`
   width: 100vw;
@@ -335,5 +336,63 @@ export const PostImage = styled.img`
   @media screen and (max-width: 768px) {
     width: 100%;
     height: auto;
+  }
+`
+
+export const NoPostsContainer = styled.div`
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+export const Camera = styled(FaCamera)`
+  width: 48px;
+  height: 45px;
+  opacity: 0px;
+  @media screen and (max-width: 768px) {
+    width: 29.02px;
+    height: 26.79px;
+    gap: 0px;
+    opacity: 0px;
+  }
+`
+
+export const CameraContainer = styled.div`
+  width: 86px;
+  height: 86px;
+  top: 522px;
+  left: 677px;
+  gap: 0px;
+  opacity: 0px;
+  border: 2px solid #262626;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  @media screen and (max-width: 768px) {
+    width: 48px;
+    height: 48px;
+    gap: 0px;
+    opacity: 0px;
+    border: 1.12px solid #262626;
+  }
+`
+
+export const NoPostsComment = styled.p`
+  font-family: 'Roboto';
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 48px;
+  text-align: left;
+  @media screen and (max-width: 768px) {
+    font-family: 'Roboto';
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 24px;
+    text-align: left;
   }
 `

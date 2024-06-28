@@ -32,6 +32,10 @@ import {
   SmallProfileImage,
   SmallPostsContainer,
   SmallProfileAndFollowersContainer,
+  NoPostsContainer,
+  Camera,
+  CameraContainer,
+  NoPostsComment,
 } from './styledComponent'
 import PopupComponent from '../PopupComponent/index'
 
@@ -54,18 +58,21 @@ class UserProfile extends Component {
     const {match} = this.props
     const {params} = match
     const {id} = params
+    const url = id
+      ? `https://apis.ccbp.in/insta-share/users/${id}`
+      : 'https://apis.ccbp.in/insta-share/my-profile'
     const jwtToken = Cookies.get('jwt_token')
-    const url = `https://apis.ccbp.in/insta-share/users/${id}`
+
     const options = {
       headers: {
-        Authorization: `Beare ${jwtToken}`,
+        Authorization: `Bearer ${jwtToken}`,
       },
       method: 'GET',
     }
     const response = await fetch(url, options)
     if (response.ok) {
       const data = await response.json()
-      const details = data.user_details
+      const details = id ? data.user_details : data.profile
       const userDetails = {
         userName: details.user_name,
         userId: details.user_id,
@@ -147,15 +154,24 @@ class UserProfile extends Component {
             <GridIcon />
             <PostsGrid>Posts</PostsGrid>
           </GridContainer>
-          <PostsImageContainer>
-            {posts.map(eachItem => (
-              <PostImage
-                src={eachItem.image}
-                key={eachItem.id}
-                alt={eachItem.id}
-              />
-            ))}
-          </PostsImageContainer>
+          {postsCount > 0 ? (
+            <PostsImageContainer>
+              {posts.map(eachItem => (
+                <PostImage
+                  src={eachItem.image}
+                  key={eachItem.id}
+                  alt={eachItem.id}
+                />
+              ))}
+            </PostsImageContainer>
+          ) : (
+            <NoPostsContainer>
+              <CameraContainer>
+                <Camera />
+              </CameraContainer>
+              <NoPostsComment>No Posts Yet</NoPostsComment>
+            </NoPostsContainer>
+          )}
         </UserPostsContainer>
       </ContentContainer>
     )

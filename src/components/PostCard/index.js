@@ -75,7 +75,6 @@ class PostCard extends Component {
             <UserName>{userName}</UserName>
           </ProfileContainer>
         </LinkItem>
-
         <PostImage src={imageUrl} alt="post" />
         <BottomContainer>
           <ButtonsContainer>
@@ -92,7 +91,7 @@ class PostCard extends Component {
           <Likes>{numberOfLikes} likes</Likes>
           <Caption>{caption}</Caption>
           {comments.map(eachItem => (
-            <CommentSection>
+            <CommentSection key={eachItem.user_name}>
               {eachItem.user_name}
               <SpanElement>{eachItem.comment}</SpanElement>
             </CommentSection>

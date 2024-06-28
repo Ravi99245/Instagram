@@ -51,7 +51,6 @@ class UserPosts extends Component {
         userId: eachItem.user_id,
         userName: eachItem.user_name,
       }))
-      console.log(postsList)
       this.setState({userPosts: postsList, apiStatus: apiStatusText.success})
     } else {
       this.setState({apiStatus: apiStatusText.failure})

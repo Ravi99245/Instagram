@@ -26,6 +26,11 @@ class Header extends Component {
     this.setState({searchInput: event.target.value})
   }
 
+  goToMyProfile = () => {
+    const {history} = this.props
+    history.replace('/my-profile')
+  }
+
   render() {
     const {searchInput} = this.state
 
@@ -41,6 +46,7 @@ class Header extends Component {
             updateShowOptions()
           }
           const {history} = this.props
+          console.log(history)
 
           return (
             <HeaderContainer>
@@ -77,6 +83,7 @@ class Header extends Component {
                 <LinkElement to="/my-profile">
                   <PageName
                     active={history.location.pathname === '/my-profile'}
+                    onClick={this.goToMyProfile}
                   >
                     Profile
                   </PageName>
