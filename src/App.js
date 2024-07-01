@@ -14,6 +14,7 @@ class App extends Component {
     currentPage: 'home',
     showOptions: false,
     showSearchBar: false,
+    searchInput: '',
   }
 
   changePage = pageName => {
@@ -33,8 +34,12 @@ class App extends Component {
     }))
   }
 
+  updateSearchInput = value => {
+    this.setState({searchInput: value})
+  }
+
   render() {
-    const {currentPage, showOptions, showSearchBar} = this.state
+    const {currentPage, showOptions, showSearchBar, searchInput} = this.state
 
     return (
       <InstaContext.Provider
@@ -45,6 +50,8 @@ class App extends Component {
           updateShowOptions: this.updateShowOptions,
           showSearchBar,
           updateShowSearchBar: this.updateShowSearchBar,
+          searchInput,
+          updateSearchInput: this.updateSearchInput,
         }}
       >
         <Switch>

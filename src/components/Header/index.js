@@ -31,23 +31,30 @@ class Header extends Component {
     history.replace('/my-profile')
   }
 
+  goToSearchPage = () => {
+    const {history} = this.props
+    const {searchInput} = this.state
+    if (searchInput) {
+      history.push('/search-results')
+    }
+  }
+
   render() {
     const {searchInput} = this.state
 
     return (
       <InstaContext.Consumer>
         {value => {
-          const {changePage, updateShowOptions} = value
+          const {changePage, updateShowOptions, updateSearchInput} = value
 
           const updatePageToNone = () => {
             changePage('none')
+            updateSearchInput(searchInput)
           }
           const showSearchInput = () => {
             updateShowOptions()
           }
           const {history} = this.props
-          console.log(history)
-
           return (
             <HeaderContainer>
               <LinkElement to="/">

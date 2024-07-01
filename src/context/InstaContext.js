@@ -9,6 +9,8 @@ const InstaContext = React.createContext({
   updateShowOptions: () => {},
   showSearchBar: false,
   updateShowSearchBar: () => {},
+  searchInput: '',
+  updateSearchInput: () => {},
 })
 
 export default InstaContext
